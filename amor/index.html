@@ -1,0 +1,959 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080512">
+<title>A Garden for Lyn ✨</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #ff78b7;
+  --light-pink: #ffe0ef;
+  --gold: #ffe1a0;
+  --night: #080512;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--night);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+#garden {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.sky-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 75%,
+      rgba(139, 48, 115, .15),
+      transparent 58%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(5, 4, 18, .05),
+      transparent 65%,
+      rgba(5, 3, 12, .4)
+    );
+}
+
+/* SHOOTING STARS */
+
+.night {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-radius: 999px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffb0d4,
+    #fff4fb
+  );
+  box-shadow: 0 0 12px #ff78b7;
+  transform: rotate(-35deg);
+  animation: shooting 5s ease-in infinite;
+}
+
+.shooting-star:nth-child(1) {
+  top: 17%;
+  left: 8%;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 29%;
+  left: 52%;
+  animation-delay: 4.2s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 10%;
+  left: 72%;
+  animation-delay: 7.1s;
+}
+
+.shooting-star:nth-child(4) {
+  top: 42%;
+  left: 18%;
+  animation-delay: 9.5s;
+}
+
+@keyframes shooting {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-35deg);
+  }
+  8% {
+    opacity: .9;
+  }
+  30% {
+    opacity: 0;
+    transform: translate(260px, 170px) rotate(-35deg);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* INTRODUCTION */
+
+.intro {
+  position: fixed;
+  top: 8%;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  padding: 0 20px;
+  text-align: center;
+  pointer-events: none;
+  animation: intro-appear 2s ease 1s both;
+}
+
+.eyebrow {
+  color: #eeb8d7;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: #fff0f7;
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 600;
+  line-height: 1.15;
+  text-shadow:
+    0 0 12px rgba(255, 91, 172, .65),
+    0 0 38px rgba(255, 46, 138, .28);
+}
+
+.subtitle {
+  margin-top: 12px;
+  color: #e8c9df;
+  font-size: clamp(11px, 2vw, 14px);
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+}
+
+.typewriter {
+  display: block;
+  min-height: 28px;
+  margin-top: 18px;
+  color: #ffb8d7;
+  font-size: clamp(11px, 2.2vw, 14px);
+  letter-spacing: .5px;
+}
+
+/* FLOATING HEARTS AND MESSAGES */
+
+#effects {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: var(--pink);
+  font-size: 22px;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(255, 65, 157, .8);
+  animation: heart-rise 7s ease-in forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes heart-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(.6) rotate(-12deg);
+  }
+  12% {
+    opacity: .85;
+  }
+  55% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(35px, -115vh, 0) scale(1.25) rotate(18deg);
+  }
+}
+
+.floating-message {
+  position: absolute;
+  max-width: 85vw;
+  color: #ffe8f3;
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(19px, 3vw, 27px);
+  text-shadow:
+    0 0 9px #ff5caa,
+    0 0 24px rgba(255, 46, 138, .5);
+  white-space: nowrap;
+  animation: message-fade 4.5s ease-in-out forwards;
+}
+
+@keyframes message-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(.9);
+  }
+  20%, 72% {
+    opacity: .95;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15px) scale(1.02);
+  }
+}
+
+/* BOTTOM NOTE AND BUTTON */
+
+.footer {
+  position: fixed;
+  bottom: 22px;
+  left: 0;
+  width: 100%;
+  padding: 0 16px;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.footer-note {
+  color: rgba(255, 224, 239, .78);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.love-button {
+  pointer-events: auto;
+  padding: 11px 23px;
+  border: 1px solid rgba(255, 174, 211, .55);
+  border-radius: 999px;
+  color: #ffe7f2;
+  background: rgba(34, 13, 38, .55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  cursor: pointer;
+  transition:
+    background .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
+}
+
+.love-button:hover {
+  background: rgba(155, 44, 105, .4);
+  box-shadow: 0 0 22px rgba(255, 92, 170, .25);
+  transform: translateY(-2px);
+}
+
+@keyframes intro-appear {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .intro {
+    top: 7%;
+  }
+
+  .eyebrow {
+    letter-spacing: 3px;
+    font-size: 9px;
+  }
+
+  h1 {
+    font-size: clamp(39px, 10vw, 56px);
+  }
+
+  .subtitle {
+    max-width: 330px;
+    margin: 10px auto 0;
+    letter-spacing: .6px;
+  }
+
+  .typewriter {
+    margin-top: 13px;
+    padding: 0 8px;
+  }
+
+  .footer {
+    bottom: 15px;
+  }
+
+  .footer-note {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .floating-message {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star {
+    animation-duration: 12s;
+  }
+
+  .heart {
+    animation-duration: 10s;
+  }
+
+  .floating-message {
+    animation-duration: 5s;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="garden" aria-hidden="true"></canvas>
+<div class="sky-glow" aria-hidden="true"></div>
+
+<div class="night" aria-hidden="true">
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+</div>
+
+<header class="intro">
+  <div class="eyebrow">The universe made for you</div>
+  <h1>For the Love of My Life</h1>
+  <p class="subtitle">
+    If I could give you one thing in life,<br>
+    I would give you the ability to see yourself through my eyes.
+  </p>
+  <span class="typewriter" id="typewriter" aria-live="polite"></span>
+</header>
+
+<div id="effects" aria-hidden="true"></div>
+
+<footer class="footer">
+  <div class="footer-note">Every flower blooms for you ✨</div>
+  <button class="love-button" id="loveButton" type="button">
+    Send You Some Love ♡
+  </button>
+</footer>
+
+<script>
+"use strict";
+
+/* =========================================
+   1. CANVAS AND RESPONSIVE LAYOUT
+========================================= */
+
+const canvas = document.getElementById("garden");
+const ctx = canvas.getContext("2d");
+const effects = document.getElementById("effects");
+
+let w = 0;
+let h = 0;
+let dpr = 1;
+let flowers = [];
+let particles = [];
+let stars = [];
+let lastFrame = 0;
+let animationTime = 0;
+let lastMessageTime = 0;
+let lastHeartTime = 0;
+let flowerSeed = 0;
+
+const palette = [
+  "#ff368f",
+  "#ff70b7",
+  "#ffacd5",
+  "#e84b9b",
+  "#ffc0dc",
+  "#ff8cbd"
+];
+
+const loveMessages = [
+  "You are my favorite person",
+  "You make my world bloom",
+  "My heart feels at home with you",
+  "You are my sweetest dream",
+  "If I had a thousand lives, I would find you in every one",
+  "You make ordinary moments magical",
+  "You will always have a place in my heart",
+  "You are my favorite kind of forever",
+  "Every little star reminds me of you"
+];
+
+function random(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+function resize() {
+  w = window.innerWidth;
+  h = window.innerHeight;
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = Math.round(w * dpr);
+  canvas.height = Math.round(h * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  createGarden();
+  createStars();
+  createParticles();
+}
+
+function createGarden() {
+  flowers = [];
+  flowerSeed = 0;
+
+  const count = Math.max(18, Math.min(46, Math.floor(w / 13)));
+  const spacing = w / count;
+
+  for (let i = 0; i < count; i++) {
+    const ground = h * random(.77, .97);
+
+    flowers.push({
+      x: (i + .5) * spacing + random(-spacing * .22, spacing * .22),
+      ground,
+      height: h * random(.13, .26),
+      size: random(7, 12),
+      color: palette[Math.floor(Math.random() * palette.length)],
+      delay: i * .16 + random(0, 1.5),
+      phase: random(0, Math.PI * 2),
+      sway: random(2, 6),
+      petals: Math.floor(random(5, 8)),
+      leaves: Math.random() > .25,
+      bloomSpeed: random(.8, 1.2)
+    });
+  }
+
+  // Small flowers grow among the taller ones.
+  const extraCount = Math.max(7, Math.floor(w / 38));
+
+  for (let i = 0; i < extraCount; i++) {
+    flowers.push({
+      x: random(0, w),
+      ground: h * random(.88, 1.01),
+      height: h * random(.07, .13),
+      size: random(5, 8),
+      color: palette[Math.floor(Math.random() * palette.length)],
+      delay: random(2, 7),
+      phase: random(0, Math.PI * 2),
+      sway: random(1, 4),
+      petals: 5,
+      leaves: true,
+      bloomSpeed: random(.8, 1.2)
+    });
+  }
+}
+
+function createStars() {
+  stars = [];
+
+  for (let i = 0; i < 85; i++) {
+    stars.push({
+      x: Math.random() * w,
+      y: Math.random() * h * .73,
+      radius: random(.4, 1.5),
+      phase: random(0, Math.PI * 2),
+      speed: random(.5, 1.8)
+    });
+  }
+}
+
+function createParticles() {
+  particles = [];
+
+  for (let i = 0; i < 65; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      rise: random(5, 18),
+      speed: random(.35, 1.1),
+      phase: random(0, Math.PI * 2),
+      radius: random(.7, 2),
+      color: Math.random() > .48 ? "#ff9dce" : "#ffe5a1"
+    });
+  }
+}
+
+/* =========================================
+   2. SKY, STARS AND GLOWING PARTICLES
+========================================= */
+
+function drawBackground(time) {
+  const sky = ctx.createLinearGradient(0, 0, 0, h);
+
+  sky.addColorStop(0, "#050513");
+  sky.addColorStop(.48, "#100a21");
+  sky.addColorStop(.78, "#21102a");
+  sky.addColorStop(1, "#090611");
+
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, w, h);
+
+  const halo = ctx.createRadialGradient(
+    w * .5, h * .68, 2,
+    w * .5, h * .68, h * .72
+  );
+
+  halo.addColorStop(0, "rgba(160, 54, 126, .22)");
+  halo.addColorStop(.5, "rgba(94, 34, 100, .08)");
+  halo.addColorStop(1, "rgba(5, 5, 19, 0)");
+
+  ctx.fillStyle = halo;
+  ctx.fillRect(0, 0, w, h);
+
+  for (const star of stars) {
+    const alpha = .2 + .8 *
+      Math.abs(Math.sin(time * star.speed + star.phase));
+
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = "#fff0fb";
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.globalAlpha = 1;
+}
+
+function drawGlow(x, y, radius, color, alpha = 1) {
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.shadowBlur = radius * 2.5;
+  ctx.shadowColor = color;
+  ctx.fillStyle = color;
+
+  ctx.beginPath();
+  ctx.arc(x, y, radius * .5, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawParticles(time) {
+  for (const p of particles) {
+    const x = p.x + Math.sin(time * p.speed + p.phase) * 17;
+    const y = ((p.y - time * p.rise) % (h + 30) + h + 30) % (h + 30) - 15;
+
+    const twinkle = .25 + .75 *
+      Math.abs(Math.sin(time * 1.8 + p.phase));
+
+    drawGlow(x, y, p.radius, p.color, twinkle);
+  }
+}
+
+/* =========================================
+   3. FLOWERS: GROWING STEMS AND OPENING PETALS
+========================================= */
+
+function drawLeaf(x, y, side, grow, time, phase) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(side * -.6 + Math.sin(time + phase) * .035);
+
+  ctx.fillStyle = "#278451";
+  ctx.beginPath();
+  ctx.ellipse(
+    side * 8 * grow,
+    0,
+    11 * grow,
+    4.5 * grow,
+    0,
+    0,
+    Math.PI * 2
+  );
+  ctx.fill();
+
+  ctx.strokeStyle = "rgba(173, 240, 178, .3)";
+  ctx.lineWidth = .7;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(side * 14 * grow, 0);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawFlower(f, time) {
+  const age = time - f.delay;
+
+  if (age <= 0) return;
+
+  const grow = Math.min(1, age / 3);
+  const bloom = Math.max(0, Math.min(1, (age - 1.1) / 2.4));
+
+  const sway = Math.sin(time * 1.15 + f.phase) * f.sway;
+  const topX = f.x + sway * grow;
+  const topY = f.ground - f.height * grow;
+
+  // Curved stem.
+  ctx.save();
+  ctx.strokeStyle = "#287447";
+  ctx.lineWidth = 1.5 + grow;
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.moveTo(f.x, f.ground);
+  ctx.quadraticCurveTo(
+    f.x + sway * .45,
+    f.ground - f.height * .5 * grow,
+    topX,
+    topY
+  );
+  ctx.stroke();
+
+  // Leaves unfold as the stem grows.
+  if (f.leaves && grow > .18) {
+    const leafGrow = Math.min(1, (grow - .18) * 2.5);
+
+    drawLeaf(
+      f.x + sway * .35,
+      f.ground - f.height * .4 * grow,
+      -1, leafGrow, time, f.phase
+    );
+
+    drawLeaf(
+      f.x + sway * .5,
+      f.ground - f.height * .58 * grow,
+      1, leafGrow, time, f.phase + 1
+    );
+  }
+
+  ctx.restore();
+
+  if (bloom <= 0) return;
+
+  const open = Math.min(1, bloom * f.bloomSpeed * 1.25);
+  const pulse = 1 + Math.sin(time * 2.2 + f.phase) * .035;
+
+  ctx.save();
+  ctx.translate(topX, topY);
+  ctx.rotate(sway * .012);
+
+  // Soft glow around the flower.
+  drawGlow(0, 0, f.size * .9 * open, f.color, .23);
+
+  // Individual petals.
+  for (let i = 0; i < f.petals; i++) {
+    const angle = i * Math.PI * 2 / f.petals;
+    const distance = f.size * .57 * open;
+
+    ctx.save();
+    ctx.rotate(angle);
+    ctx.translate(0, -distance);
+    ctx.rotate(-.12);
+
+    ctx.shadowColor = f.color;
+    ctx.shadowBlur = 7 * open;
+    ctx.fillStyle = f.color;
+
+    ctx.beginPath();
+    ctx.ellipse(
+      0,
+      0,
+      f.size * .39 * open * pulse,
+      f.size * .69 * open * pulse,
+      0,
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+
+    // A delicate highlight on each petal.
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = "rgba(255, 238, 249, .25)";
+    ctx.lineWidth = .6;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // Golden flower center.
+  ctx.shadowBlur = 12;
+  ctx.shadowColor = "#ffd86b";
+  ctx.fillStyle = "#ffd86b";
+
+  ctx.beginPath();
+  ctx.arc(0, 0, f.size * .24 * open, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Tiny golden specks inside the center.
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = "#fff1b6";
+
+  for (let i = 0; i < 5; i++) {
+    const angle = i * Math.PI * 2 / 5;
+    const distance = f.size * .12 * open;
+
+    ctx.beginPath();
+    ctx.arc(
+      Math.cos(angle) * distance,
+      Math.sin(angle) * distance,
+      Math.max(.4, f.size * .025 * open),
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+function drawGround() {
+  const ground = ctx.createLinearGradient(0, h * .79, 0, h);
+
+  ground.addColorStop(0, "rgba(24, 13, 29, .02)");
+  ground.addColorStop(.35, "rgba(10, 9, 19, .8)");
+  ground.addColorStop(1, "#07060e");
+
+  ctx.fillStyle = ground;
+  ctx.beginPath();
+  ctx.ellipse(
+    w / 2,
+    h * 1.06,
+    w * .9,
+    h * .27,
+    0,
+    0,
+    Math.PI * 2
+  );
+  ctx.fill();
+}
+
+/* =========================================
+   4. MAIN ANIMATION LOOP
+========================================= */
+
+function animate(now) {
+  if (!lastFrame) lastFrame = now;
+
+  // Cap large time jumps when returning to the tab.
+  const delta = Math.min((now - lastFrame) / 1000, .05);
+  lastFrame = now;
+  animationTime += delta;
+
+  drawBackground(animationTime);
+  drawParticles(animationTime);
+  drawGround();
+
+  // Flowers farther back are drawn first.
+  flowers.sort((a, b) => a.ground - b.ground);
+
+  for (const flower of flowers) {
+    drawFlower(flower, animationTime);
+  }
+
+  // Gentle, occasional messages.
+  if (animationTime - lastMessageTime > 7.5) {
+    createFloatingMessage();
+    lastMessageTime = animationTime;
+  }
+
+  // A few hearts drift through the garden.
+  if (animationTime - lastHeartTime > 1.5) {
+    createHeart();
+    lastHeartTime = animationTime;
+  }
+
+  requestAnimationFrame(animate);
+}
+
+/* =========================================
+   5. FLOATING ROMANTIC MESSAGES AND HEARTS
+========================================= */
+
+function createFloatingMessage() {
+  if (document.hidden) return;
+
+  const message = document.createElement("div");
+  message.className = "floating-message";
+  message.textContent =
+    loveMessages[Math.floor(Math.random() * loveMessages.length)];
+
+  const maxTop = Math.max(180, h * .66);
+
+  message.style.left = random(5, 65) + "%";
+  message.style.top = random(h * .32, maxTop) + "px";
+
+  effects.appendChild(message);
+
+  setTimeout(() => message.remove(), 4600);
+}
+
+function createHeart(x, y, custom = false) {
+  if (document.hidden) return;
+
+  const heart = document.createElement("span");
+  heart.className = "heart";
+
+  const symbols = ["♡", "♥", "💗", "✨"];
+  heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+  heart.style.left = (x ?? random(3, 97) / 100 * w) + "px";
+  heart.style.fontSize = random(14, custom ? 31 : 23) + "px";
+  heart.style.animationDuration = random(5, 8) + "s";
+
+  if (y !== undefined) {
+    heart.style.bottom = "auto";
+    heart.style.top = y + "px";
+  }
+
+  effects.appendChild(heart);
+  setTimeout(() => heart.remove(), 8200);
+}
+
+/* =========================================
+   6. TYPEWRITER
+========================================= */
+
+const phrases = [
+  "You make my world bloom...",
+  "You are my favorite kind of magic...",
+  "Every flower is a little reminder of my love...",
+  "I want to grow with you, through every season...",
+  "In every universe, I would still choose you."
+];
+
+const typewriter = document.getElementById("typewriter");
+
+let phraseIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeLoop() {
+  const phrase = phrases[phraseIndex];
+
+  if (!deleting) {
+    typewriter.textContent = phrase.slice(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex >= phrase.length) {
+      deleting = true;
+      setTimeout(typeLoop, 2300);
+      return;
+    }
+
+    setTimeout(typeLoop, 58);
+  } else {
+    typewriter.textContent = phrase.slice(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex <= 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typeLoop, 500);
+      return;
+    }
+
+    setTimeout(typeLoop, 25);
+  }
+}
+
+/* =========================================
+   7. INTERACTION
+========================================= */
+
+document.getElementById("loveButton").addEventListener("click", () => {
+  const amount = Math.min(22, Math.max(12, Math.floor(w / 35)));
+
+  for (let i = 0; i < amount; i++) {
+    setTimeout(() => {
+      createHeart(
+        random(w * .25, w * .75),
+        h * random(.45, .8),
+        true
+      );
+    }, i * 65);
+  }
+
+  createFloatingMessage();
+});
+
+// Tapping or clicking the scene releases a little burst of hearts.
+document.addEventListener("pointerdown", event => {
+  if (event.target.closest("button")) return;
+
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      createHeart(
+        event.clientX + random(-45, 45),
+        event.clientY + random(-25, 25),
+        true
+      );
+    }, i * 80);
+  }
+});
+
+/* =========================================
+   8. INITIALIZE AND CLEAN UP
+========================================= */
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    lastFrame = 0;
+  }
+});
+
+window.addEventListener("resize", resize);
+
+resize();
+setTimeout(typeLoop, 2800);
+requestAnimationFrame(animate);
+</script>
+
+</body>
+</html>

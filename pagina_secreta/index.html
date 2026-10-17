@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our little secret ♡</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="screen">
+  <span class="decor bow">🎀</span><span class="decor hearts">♡　♥　♡</span>
+  <section id="loginScreen" class="login-card">
+    <div class="photo-area">
+      <div class="heart-frame">
+        <img src="photos/image1.png" alt="Our photo one" onerror="this.style.display='none';this.parentElement.classList.add('placeholder')">
+        <span class="placeholder-text">our<br>moment ♡</span><span class="frame-bow">🎀</span>
+      </div>
+      <div class="heart-frame second">
+        <img src="photos/image2.png" alt="Our photo two" onerror="this.style.display='none';this.parentElement.classList.add('placeholder')">
+        <span class="placeholder-text">you<br>& me ♡</span><span class="frame-bow">🎀</span>
+      </div>
+    </div>
+    <div class="keypad-area">
+      <h1>Enter our secret code <span>💗</span></h1>
+      <div class="code-slots" aria-label="Six digit code">
+        <span class="slot">♡</span><span class="slot">♡</span><span class="slot">♡</span>
+        <span class="slot">♡</span><span class="slot">♡</span><span class="slot">♡</span>
+      </div>
+      <p id="message" class="message" aria-live="polite">Only we know this little secret ♡</p>
+      <div class="keypad">
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+        <button data-key="delete" aria-label="Delete last digit">⌫</button><button data-key="0">0</button>
+        <button class="enter-key" data-key="enter" aria-label="Check code">♥</button>
+      </div>
+      <p class="small-note">Made with love, just for you ♡</p>
+    </div>
+  </section>
+  <section id="welcomeScreen" class="other-screen hidden">
+    <div><div class="big-heart">💗</div><p class="eyebrow">ACCESS GRANTED</p>
+    <h2>Welcome to our little world</h2><p>This tiny space is only for you and me. ♡</p>
+    <button id="continueButton" class="pink-button">Open our memories ♡</button></div>
+  </section>
+  <section id="memoriesScreen" class="other-screen hidden">
+    <button id="backButton" class="back-button">← Back</button>
+    <div><p class="eyebrow">MY BEAUTIFUL WORLD</p><h2>I love seeing you always ♡</h2>
+    <p></p>
+    <div class="gallery"><img src="photos/image3.png" alt="A memory" onerror="this.style.display='none'">
+    <img src="photos/image4.png" alt="Another memory" onerror="this.style.display='none'"></div></div>
+  </section>
+</main>
+<script src="script.js"></script>
+
+<!-- Reproductor de música -->
+<div class="music-player">
+    
+        
+       <iframe 
+       style="border: 0; border-radius: 12px;" 
+       src="https://open.spotify.com/embed/track/37BZB0z9T8Xu7U3e65qxFy?utm_source=generator&si=8e36d346f8f34cf5" 
+       width="300" 
+       height="152"  
+       allow="encrypted-media; fullscreen; picture-in-picture" 
+      </iframe>
+    
+</div>
+
+
+
+</body>
+</html>

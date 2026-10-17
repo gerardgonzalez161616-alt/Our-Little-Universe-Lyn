@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Corazón de Lyn ♡</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0a0000}
+#heartFrame{position:fixed;inset:0;width:100%;height:100%;border:0;z-index:1;background:#0a0000}
+#photoLayer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+.floating-photo{position:absolute;width:clamp(76px,12vw,145px);aspect-ratio:3/4;object-fit:cover;padding:5px;background:#fff5f7;border:1px solid #ffc2d7;border-radius:10px;box-shadow:0 0 18px #ff4f8b66,0 0 38px #ff4f8b26;opacity:0;animation:floatAcross var(--duration,12s) linear var(--delay,0s) infinite}
+.floating-photo:nth-child(1){--start-y:12%;--end-y:22%;--duration:14s;--delay:-3s}
+.floating-photo:nth-child(2){--start-y:65%;--end-y:55%;--duration:17s;--delay:-10s}
+.floating-photo:nth-child(3){--start-y:30%;--end-y:68%;--duration:19s;--delay:-7s}
+.floating-photo:nth-child(4){--start-y:75%;--end-y:18%;--duration:16s;--delay:-13s}
+.floating-photo:nth-child(5){--start-y:8%;--end-y:72%;--duration:18s;--delay:-5s}
+.floating-photo:nth-child(6){--start-y:48%;--end-y:12%;--duration:15s;--delay:-11s}
+.floating-photo:nth-child(7){--start-y:82%;--end-y:42%;--duration:20s;--delay:-8s}
+.floating-photo:nth-child(8){--start-y:40%;--end-y:82%;--duration:17s;--delay:-15s}
+@keyframes floatAcross{0%{left:-20%;top:var(--start-y);transform:rotate(-8deg) scale(.78);opacity:0}10%{opacity:.92}45%{left:42%;top:calc(var(--start-y) - 5vh);transform:rotate(5deg) scale(1);opacity:.96}85%{opacity:.88}100%{left:120%;top:var(--end-y);transform:rotate(10deg) scale(.82);opacity:0}}
+.caption{position:fixed;z-index:3;bottom:18px;left:50%;transform:translateX(-50%);color:#ffd8e5;font:500 12px/1.4 Arial,sans-serif;letter-spacing:.08em;text-align:center;text-shadow:0 0 12px #ff4f8b;opacity:.8;white-space:nowrap}
+@media(max-width:600px){.floating-photo{width:clamp(66px,19vw,100px);padding:4px}.caption{font-size:10px;bottom:10px}}
+</style></head><body>
+<!-- El archivo original se carga sin editarlo. -->
+<iframe id="heartFrame" src="heart_original.html" title="Animación original del corazón"></iframe>
+<!-- Esta capa independiente añade las fotografías flotantes. -->
+<div id="photoLayer">
+<img class="floating-photo" src="photos/photo1.png" >
+<img class="floating-photo" src="photos/photo2.png" >
+<img class="floating-photo" src="photos/photo3.png" >
+<img class="floating-photo" src="photos/photo4.png" >
+<img class="floating-photo" src="photos/photo5.png" >
+<img class="floating-photo" src="photos/photo6.png" >
+<img class="floating-photo" src="photos/photo7.png" >
+<img class="floating-photo" src="photos/photo8.png" >
+</div><div class="caption">Mi hermosa lyn ♡</div></body></html>
